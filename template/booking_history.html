@@ -1,0 +1,5 @@
+{% for booking in bookings %}
+    <p>Package: {{ booking.package.name }}</p>
+    <p>Date: {{ booking.booking_date }}</p>
+    <p>Status: {{ booking.status }}</p>
+{% endfor %}

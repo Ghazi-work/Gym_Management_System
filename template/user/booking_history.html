@@ -1,0 +1,33 @@
+<h2>Booking History</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Package</th>
+            <th>Date</th>
+            <th>Total Amount</th>
+            <th>Amount Paid</th>
+            <th>Status</th>
+            <th>Payment Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.package.name }}</td>
+            <td>{{ booking.booking_date }}</td>
+            <td>{{ booking.total_amount }}</td>
+            <td>{{ booking.amount_paid }}</td>
+            <td>{{ booking.status }}</td>
+            <td>
+                <ul>
+                {% for payment in booking.payments %}
+                    <li>{{ payment.payment_date }} - {{ payment.amount }} ({{ payment.payment_type }})</li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
